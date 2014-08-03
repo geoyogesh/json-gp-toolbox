@@ -47,10 +47,7 @@ def create_fc(geom, attr, sr):
 def flaten_list(lis):
     out=[]
     for i in lis:
-        if type(i) == 'string':
-            out.append(i)
-        else:
-            out.append(str(i))
+        out.append(str(i))
     return out
 
 
@@ -68,8 +65,6 @@ def insert_feature(fcs, feature):
     elif g == 'Polygon' or g == 'MultiPolygon':
         fc = fcs['POLYGON']
     with arcpy.da.InsertCursor(fc, tuple(['SHAPE@'] + attrs.keys())) as icur:
-        print tuple(['SHAPE@'] + attrs.keys())
-        print tuple([geom_obj] + flaten_list(attrs.values()))
         icur.insertRow(tuple([geom_obj] + flaten_list(attrs.values())))
 
 
@@ -110,7 +105,7 @@ def main():
         fcs=create_fc(geom, attr, sr)
         populate_data(fcs, data)
         export_gdb(fcs, r'C:\Users\Yogesh\Desktop\temp\temp\output.gdb')
-
+        print 'completed successfully'
 
 
 if __name__ == "__main__":

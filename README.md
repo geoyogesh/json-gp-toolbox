@@ -1,4 +1,4 @@
 json-gp-toolbox
 ===============
 
-ArcGIS geoprocessing toolbox to convert geojson and topojson files to geodatabase
+ArcGIS geoprocessing toolbox to convert geojson and topojson files to esri geodatabase
